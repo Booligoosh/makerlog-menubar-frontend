@@ -3,5 +3,5 @@
     var storeToken = require('electron').remote.getGlobal('storeToken');
     storeToken(token);
     
-    window.location.href = require('electron').remote.getGlobal('appHref');
+    require('electron').remote.getGlobal('redirectToApp')();
 </script>
