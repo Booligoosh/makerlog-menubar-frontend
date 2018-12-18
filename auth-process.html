@@ -1,1 +1,5 @@
-Hello world!
+<script>
+    var token = window.location.search.replace('?code=','');
+    var storeToken = require('electron').remote.getGlobal('storeToken');
+    storeToken(token);
+</script>
