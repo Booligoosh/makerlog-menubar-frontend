@@ -1,0 +1,73 @@
+<head>
+    <title>Makerlog Menubar</title>
+    <meta name="og:title" content="Makerlog Menubar">
+    <meta name="twitter:title" content="Makerlog Menubar">
+    <meta name="description" content="⚡ A super fast menubar app for Makerlog 🔥🚢">
+    <meta name="og:description" content="⚡ A super fast menubar app for Makerlog 🔥🚢">
+    <meta name="twitter:description" content="⚡ A super fast menubar app for Makerlog 🔥🚢">
+    <meta name="og:image" content="https://makerlog-menubar.netlify.com/img/social.png">
+    <meta name="twitter:image" content="https://makerlog-menubar.netlify.com/img/social.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@Booligoosh">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="img/icon.png">
+    <!--   -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/brands.css" integrity="sha384-whKHCkwP9f4MyD1vda26+XRyEg2zkyZezur14Kxc784RxUU1E7HvWVYj9EoJnUV7" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/fontawesome.css" integrity="sha384-WK8BzK0mpgOdhCxq86nInFqSWLzR5UAsNg0MGX9aDaIIrFWQ38dGdhwnNCAoXFxL" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body id="features">
+    <section class="hero">
+        <h1>&#x26A1; A super fast menubar app for Makerlog &#x1F525;&#x1F6A2;</h1>
+        <img src="img/app-light-dark.png" class="app-img">
+        <div class="download-cta">
+            <a class="btn download-btn" href="https://github.com/Booligoosh/makerlog-menubar/releases/latest" platform-name="mac" onmouseup="window.location.hash = 'features'">Download for <span class="platform-name"><i class="fab fa-apple"></i> MacOS</span></a>
+            <!-- <a class="btn download-btn" href="https://github.com/Booligoosh/makerlog-menubar/releases/latest" platform-name="windows" onmouseup="window.location.hash = 'features'">Download for <span class="platform-name"><i class="fab fa-windows"></i> Windows</span></a> -->
+        </div>
+    </section>
+    <section class="downloaded-screen">
+        <h1>Thank you!!</h1>
+        <p style="text-align: center">Your download will begin shortly :)<br>
+        In the meantime, let's get to know your shiny new app! &#x2728;<br><br>
+        <span style="opacity: .4">(<!-- &#x1F516;&nbsp;&nbsp; -->bookmark me for future reference)</span></p>
+        <div class="body-section">
+            <div class="feature">
+                <h2>Log from anywhere</h2>
+                <p>Just type <b>Shift ⌘ M</b> from anywhere on your computer to show/hide Makerlog Menubar! It&rsquo;ll give you a huge productivity boost &#x1F525;</p>
+                <img src="img/log-from-anywhere.gif">
+            </div>
+            <div class="feature">
+                <h2>Attach images</h2>
+                <p>Simply drag any image straight onto the Makerlog Menubar app to attach it to your log! &#x1F4CE;</p>
+                <img src="img/drag-attachments.gif">
+            </div>
+            <div class="feature">
+                <h2>Dark mode</h2>
+                <p>Makerlog Menubar will automatically change between light and dark mode based on your operating system's settings! &#x1F313;</p>
+                <img src="img/darkmode-switching.gif">
+            </div>
+        </div>
+    </section>
+</body>
+
+<script>
+    var downloadButtons = document.querySelectorAll('.download-btn');
+    
+    fetch('https://api.github.com/repos/Booligoosh/makerlog-menubar/releases/latest').then(r => r.json())
+    .then(latest => {
+        for(var i = 0; i < downloadButtons.length; i++) {
+            var downloadButton = downloadButtons[i];
+            var platformName = downloadButton.getAttribute('platform-name');
+            var downloadURL = latest.assets.filter(asset => asset.name.toLowerCase().includes(platformName))[0].browser_download_url;
+            downloadButton.setAttribute('href',downloadURL);
+        }
+    })
+    
+    function downloadButtonClicked() {
+        var heroContents = document.querySelectorAll('.hero > *');
+        for(var i = 0; i < heroContents.length; i++) {
+            heroContents[i].style.opacity = 0;
+            heroContents[i].style.pointerEvents = 'none';
+        }
+    }
+</script>

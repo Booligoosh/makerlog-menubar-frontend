@@ -1,0 +1,135 @@
+@import url('https://rsms.me/inter/inter-ui.css');
+
+:root {
+    
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: 'Inter UI', sans-serif;
+}
+
+section {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    background-size: cover;
+    background-position: center center;
+    padding: 2em;
+}
+
+.hero {
+    background-image: url(img/bg-day-night.jpg);
+    text-align: center;
+}
+
+.hero > * {
+    transition: opacity .5s ease-in-out;
+}
+
+#features:target .hero > * {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.hero h1 {
+    font-size: 2.5em;
+    color: white;
+    text-shadow: 0 5px 40px black;
+    font-weight: 500;
+}
+
+.hero .app-img {
+    max-width: 100%;
+}
+
+.hero .download-cta {
+    display: grid;
+    grid-template-columns: 1fr /* 1fr */;
+    grid-gap: 2em;
+}
+
+.hero a.btn {
+    color: white;
+    text-decoration: none;
+    padding: 1rem;
+    font-size: 1em;
+    font-weight: 500;
+    background: linear-gradient(90deg,#27ae60,#38ef7d);
+    border-radius: 10px;
+    box-shadow: 0 30px 23px -5px rgba(0,0,0,0.37);
+    transition: all .2s ease-in-out;
+}
+
+.hero a.btn .platform-name {
+    display: block;
+    font-size: 1.5em;
+}
+
+.hero a.btn:hover {
+    transform: translateY(-3px);
+}
+
+.downloaded-screen {
+    opacity: 0;
+    pointer-events: none;
+    transition: all .5s ease-in-out;
+    position: fixed;
+    top: 2em;
+    left: 2em;
+    right: 2em;
+    bottom: 2em;
+    min-height: 0;
+    overflow-y: scroll;
+    background: rgba(255,255,255,0.9);
+    border-radius: 10px;
+    display: block;
+    text-align: center;
+}
+
+#features:target .downloaded-screen {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.downloaded-screen .body-section {
+    margin-top: 3rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 2em;
+}
+
+.downloaded-screen .body-section .feature {
+    
+}
+
+.downloaded-screen h1 {
+    font-size: 3em;
+    margin: .1em 0;
+}
+
+.downloaded-screen h2 {
+    font-size: 2.25em;
+    margin: .1em 0;
+}
+
+.downloaded-screen hr {
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    width: 20em;
+    margin: 2em 0;
+}
+
+.downloaded-screen img {
+    max-width: 100%;
+    max-height: 50vh;
+    display: block;
+    margin: 2em auto;
+    border-radius: 10px;
+}
