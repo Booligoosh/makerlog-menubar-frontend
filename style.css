@@ -26,7 +26,8 @@ section {
 }
 
 .hero {
-    background-image: url(img/bg-day-night.jpg);
+    background-color: #171b21;
+    background-image: url(img/bg-day-night-1778px.jpg), url(img/bg-day-night-800px.jpg), url(img/bg-day-night-200px.jpg);
     text-align: center;
 }
 
