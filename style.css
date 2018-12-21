@@ -134,3 +134,35 @@ section {
     margin: 2em auto;
     border-radius: 10px;
 }
+
+a.corner-link {
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 1.2em;
+    font-size: 1.1em;
+    color: white;
+    text-decoration: none;
+    opacity: .7;
+    font-weight: 600;
+    transition: all .2s ease-in-out;
+}
+
+a.corner-link:hover {
+    opacity: 1;
+    transform: translateY(-1px);
+}
+
+body.open .hero > div {
+    text-align: left;
+}
+
+body.open .hero  h1 {
+    text-align: center;
+}
+
+body.open .hero a.corner-link {
+    position: static;
+    display: block;
+    width: max-content;
+}
