@@ -1,0 +1,52 @@
+<head>
+    <title>Open stats for Makerlog Menubar</title>
+    <meta name="og:title" content="Open stats for Makerlog Menubar 📈">
+    <meta name="twitter:title" content="Open stats for Makerlog Menubar 📈">
+    <meta name="description" content="⚡ A super fast menubar app for Makerlog 🔥🚢">
+    <meta name="og:description" content="⚡ A super fast menubar app for Makerlog 🔥🚢">
+    <meta name="twitter:description" content="⚡ A super fast menubar app for Makerlog 🔥🚢">
+    <meta name="og:image" content="https://makerlog-menubar.netlify.com/img/social.png">
+    <meta name="twitter:image" content="https://makerlog-menubar.netlify.com/img/social.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@Booligoosh">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="img/icon.png">
+    <!--   -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body id="features">
+    <section class="hero">
+        <h1>Makerlog Menubar has been downloaded <span class="download-count">___</span> times &#x1F525;&#x26A1;</h1>
+        <!-- <div class="download-cta">
+            <a class="btn download-btn" href=".">Check it out :)</a>
+        </div> -->
+    </section>
+</body>
+
+<script>
+    var downloadCount = 0;
+    
+    fetch('https://api.github.com/repos/Booligoosh/makerlog-menubar/releases?per_page=100').then(r => r.json())
+    .then(releases => {
+        console.log(releases);
+        for(var i = 0; i < releases.length; i++) {
+            var release = releases[i];
+            for(var l = 0; l < release.assets.length; l++) {
+                var asset = release.assets[l];
+                downloadCount += asset.download_count;
+            }
+        }
+        console.log(downloadCount);
+        document.querySelector('.download-count').innerHTML = downloadCount;
+    })
+</script>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-103555680-8"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-103555680-8');
+</script>
