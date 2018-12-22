@@ -53,8 +53,12 @@ section {
 
 .hero .download-cta {
     display: grid;
-    grid-template-columns: 1fr /* 1fr */;
+    grid-template-columns: 1fr;
     grid-gap: 2em;
+}
+
+.hero .download-cta.double {
+    grid-template-columns: 1fr 1fr;
 }
 
 .hero a.btn {
