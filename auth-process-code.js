@@ -5,8 +5,15 @@ fetch('https://makerlog-menubar-cloud-functions.netlify.com/.netlify/functions/e
 	method: 'POST',
 	body: JSON.stringify({code: code})
 }).then(r => r.json()).then(r => {
-    var storeToken = require('electron').remote.getGlobal('storeToken');
+    
+    if(require) {
+        getGlobal = require('electron').remote.getGlobal;
+    } else {
+        getGlobal = Bridge.getGlobal; 
+    }
+    
+    var storeToken = getGlobal('storeToken');
     storeToken(`${r.access_token}|${r.refresh_token}`);
 
-    require('electron').remote.getGlobal('redirectToApp')();
+    getGlobal('redirectToApp')();
 })
