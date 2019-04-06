@@ -6,7 +6,7 @@ fetch('https://makerlog-menubar-cloud-functions.netlify.com/.netlify/functions/e
 	body: JSON.stringify({code: code})
 }).then(r => r.json()).then(r => {
     
-    if(require) {
+    if(typeof require !== 'undefined') {
         getGlobal = require('electron').remote.getGlobal;
     } else {
         getGlobal = Bridge.getGlobal; 
